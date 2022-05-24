@@ -1,0 +1,26 @@
+
+
+Ex().multi(
+    check_function("print", 0).check_correct(
+        check_args(0).has_equal_value(),
+        check_function("census.head", signature=""),
+    ).has_equal_value(),
+    check_function("print", 1).check_correct(
+        check_args(0).has_equal_value(),
+        check_function("census.info", signature=""),
+    ).has_equal_value(),
+    check_function("print", 2, signature="").check_correct(
+        check_args(0).has_equal_value(),
+        has_equal_ast(),
+    ),
+    check_function("print", 3).check_correct(
+        check_args(0).has_equal_value(),
+        check_function("census.describe", signature=""),
+    ).has_equal_value(),
+)
+
+
+success_msg(
+    """ Супер! Вы можете видеть, что среднее число одиноких в каждом регионе 
+        составляет около 7226 человек. Давайте подробнее рассмотрим DataFrame."""
+)
